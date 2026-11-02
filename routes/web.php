@@ -25,3 +25,13 @@ Route::post('/about',function(){
     return view('about',compact('name','departments'));
 
 });
+Route::get('tasks',function(){
+    return view ('tasks');
+
+});
+Route::post('create',function(){
+    //فقط نضمن عملية الاضافة
+    $task_name=$_POST['name'];
+    DB::table('tasks')->insert(['name' => $task_name]);
+    return view ('tasks');
+});
