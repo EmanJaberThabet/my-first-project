@@ -33,7 +33,7 @@ Route::post('create',[TaskController::class,'create']);
 
 Route::post('delete/{id}',[TaskController::class,'destroy']);
 
-Route::post('edit/{id}',[TaskController::class,'edit']);
+Route::get('edit/{id}',[TaskController::class,'edit']);
 
 Route::post('update',[TaskController::class,'update']);
 
@@ -50,7 +50,7 @@ Route::post('/users/create', [UserController::class, 'add']);
 
 Route::post('/users/delete/{id}', [UserController::class, 'destroy']);
 
-Route::post('/users/edit/{id}', [UserController::class, 'edit']);
+Route::get('/users/edit/{id}', [UserController::class, 'edit']);
 
 Route::post('/users/update', [UserController::class, 'update']);
 

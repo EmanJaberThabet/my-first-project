@@ -4,6 +4,15 @@
     <div class="container mt-4">
         <h1>Users Management</h1>
         <div class="offset-md-2 col-md-8">
+            @if ($errors->any())
+        <div class="alert alert-danger mb-3">
+        <ul class="mb-0">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+       </div>
+         @endif
             <div class="card">
                 @if(isset($user))
                     <div class="card-header">
@@ -98,12 +107,9 @@
                                                 <i class="fa fa-trash me-2"></i>Delete
                                             </button>
                                         </form>
-                                        <form action="{{ url('users/edit/' . $item->id) }}" method="POST" class="d-inline">
-                                            @csrf
-                                            <button type="submit" class="btn btn-info">
-                                                <i class="fa fa-edit me-2"></i>Edit
-                                            </button>
-                                        </form>
+                                        <a href="{{ url('users/edit/' . $item->id) }}" class="btn btn-info">
+                                          <i class="fa fa-edit me-2"></i>Edit
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach
